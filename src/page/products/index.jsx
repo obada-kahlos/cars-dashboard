@@ -193,22 +193,7 @@ export const Products = () => {
                 )}
               />
             </div>
-            <div className="col-span-12">
-              <Controller
-                name="count"
-                control={control}
-                defaultValue={edit ? edit?.count : ""}
-                render={({ field }) => (
-                  <Input
-                    label={"Product Count"}
-                    type={"text"}
-                    className={"count"}
-                    {...field}
-                    rounded={"50px"}
-                  />
-                )}
-              />
-            </div>
+
 
             <div className="col-span-12">
               <Controller
@@ -226,65 +211,6 @@ export const Products = () => {
               />
             </div>
 
-            <div className="col-span-12">
-              <Controller
-                name="discount"
-                control={control}
-                defaultValue={edit ? edit?.discount : ""}
-                render={({ field }) => (
-                  <Input
-                    {...field}
-                    label={"Product discount"}
-                    type={"text"}
-                    className={"discount"}
-                  />
-                )}
-              />
-            </div>
-
-            <div className="col-span-12">
-              <Controller
-                name="status"
-                control={control}
-                defaultValue={edit ? edit?.status : ""}
-                render={({ field }) => (
-                  <Select {...field} label="Select Status">
-                    <Option value={true}>Active</Option>
-                    <Option value={false}>None</Option>
-                  </Select>
-                )}
-              />
-            </div>
-
-            <div className="col-span-12">
-              <Controller
-                name="age"
-                control={control}
-                defaultValue={edit ? edit?.age : ""}
-                render={({ field }) => (
-                  <Select {...field} label="Select age">
-                    <Option value="جديد">جديد</Option>
-                    <Option value="مستعمل">مستعمل</Option>
-                    <Option value="اوبن بوكس">اوبن بوكس</Option>
-                  </Select>
-                )}
-              />
-            </div>
-
-            <div className="col-span-12">
-              <Controller
-                name="type"
-                control={control}
-                defaultValue={edit ? edit?.type : ""}
-                render={({ field }) => (
-                  <Select {...field} label="Select Type">
-                    <Option value="Laptop">Laptop</Option>
-                    <Option value="Mobile">Mobile</Option>
-                    <Option value="Accessory">Accessory</Option>
-                  </Select>
-                )}
-              />
-            </div>
 
             <div className="col-span-12">
               <Controller
