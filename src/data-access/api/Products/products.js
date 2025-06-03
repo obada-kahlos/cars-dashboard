@@ -33,7 +33,7 @@ const extendedApi = apiSlice.injectEndpoints({
         method: "POST",
         body: {
           query: `
-            mutation MyMutation($payload: products_insert_input!) {
+            mutation MyMutation($payload: cars_insert_input!) {
               insert_cars_one(object: $payload) {
                 id
               }
@@ -52,7 +52,7 @@ const extendedApi = apiSlice.injectEndpoints({
         method: "POST",
         body: {
           query: `
-          mutation MyMutation($payload: products_set_input, $id: uuid = "") {
+          mutation MyMutation($payload: cars_set_input, $id: uuid = "") {
             update_cars_by_pk(pk_columns: {id: $id}, _set: $payload){
               id
               description
