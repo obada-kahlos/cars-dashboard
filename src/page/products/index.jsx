@@ -44,8 +44,8 @@ export const Products = () => {
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    if (data?.data?.products) {
-      setProducts(data?.data?.products);
+    if (data?.data?.cars) {
+      setProducts(data?.data?.cars);
     }
   }, [data]);
 
