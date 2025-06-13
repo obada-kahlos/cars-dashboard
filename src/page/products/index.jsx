@@ -35,10 +35,7 @@ export const Products = () => {
   const [addPopup, setAddPopup] = React.useState(false);
   const [deletePopup, setDeletePopup] = React.useState(false);
 
-  const handleOpen = () => {
-    setAddPopup(!addPopup);
-    reset();
-  };
+
 
   const { data } = useGetProductsQuery({});
 
@@ -100,39 +97,39 @@ export const Products = () => {
   };
 
   const onSubmit = async (data) => {
+    // The 'description' field has been removed from the payload.
+    const payload = {
+      name: data.name,
+      price: data.price,
+      url1: data.url1,
+      url2: data.url2,
+      url3: data.url3,
+      url4: data.url4,
+      url5: data.url5,
+      url6: data.url6,
+      url7: data.url7,
+      url8: data.url8,
+      url9: data.url9,
+      url10: data.url10,
+    };
+
     if (edit) {
-      const payload = {
-        name: data.name,
-        price: data.price,
-        description: data.description,
-        url1: data.url1,
-        url2: data.url2,
-        url3: data.url3,
-        url4: data.url4,
-        url5: data.url5,
-      };
       await editProduct({ payload, id: edit?.id });
-      reset();
-      setImage("");
-      setAddPopup(false);
     } else {
-      const payload = {
-        name: data.name,
-        price: data.price,
-        description: data.description,
-        url1: data.url1,
-        url2: data.url2,
-        url3: data.url3,
-        url4: data.url4,
-        url5: data.url5,
-      };
       await addProduct(payload);
-      reset();
-      setImage("");
-      setAddPopup(false);
     }
+
+    reset();
+    setImage("");
+    setEdit("");
+    setAddPopup(false);
   };
 
+  const handleOpen = () => {
+    setAddPopup(!addPopup);
+    setEdit("");
+    reset();
+  };
   return (
     <div className="container mx-auto my-[10px]">
       <ProductTable
@@ -177,7 +174,7 @@ export const Products = () => {
         handleOpen={handleOpen}
       >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-12 gap-8">
+          <div className="grid grid-cols-12 gap-8 md:p-0 p-2">
             <div className="col-span-12">
               <Controller
                 name="name"
@@ -301,15 +298,86 @@ export const Products = () => {
               />
             </div>
 
-            {/* <div className="col-span-12">
-              <Input
-                label={"Product image"}
-                type={"file"}
-                onChange={handleImageUpload}
-                accept="image/*"
-                className={"name"}
+
+            <div className="col-span-12">
+              <Controller
+                name="url6"
+                control={control}
+                defaultValue={edit ? edit?.url6 : ""}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    label={"Product image"}
+                    type={"text"}
+                    className={"name"}
+                  />
+                )}
               />
-            </div> */}
+            </div>
+
+
+            <div className="col-span-12">
+              <Controller
+                name="url7"
+                control={control}
+                defaultValue={edit ? edit?.url7 : ""}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    label={"Product image"}
+                    type={"text"}
+                    className={"name"}
+                  />
+                )}
+              />
+            </div>
+
+            <div className="col-span-12">
+              <Controller
+                name="url8"
+                control={control}
+                defaultValue={edit ? edit?.url8 : ""}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    label={"Product image"}
+                    type={"text"}
+                    className={"name"}
+                  />
+                )}
+              />
+            </div>
+            <div className="col-span-12">
+              <Controller
+                name="url9"
+                control={control}
+                defaultValue={edit ? edit?.url9 : ""}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    label={"Product image"}
+                    type={"text"}
+                    className={"name"}
+                  />
+                )}
+              />
+            </div>
+            <div className="col-span-12">
+              <Controller
+                name="url10"
+                control={control}
+                defaultValue={edit ? edit?.url10 : ""}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    label={"Product image"}
+                    type={"text"}
+                    className={"name"}
+                  />
+                )}
+              />
+            </div>
+
             {image ? (
               <div className="col-span-12">
                 <img
