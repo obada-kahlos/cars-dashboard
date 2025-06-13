@@ -101,6 +101,7 @@ export const Products = () => {
     const payload = {
       name: data.name,
       price: data.price,
+      description: data.description,
       url1: data.url1,
       url2: data.url2,
       url3: data.url3,
